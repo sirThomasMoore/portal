@@ -1,4 +1,4 @@
-# rgc a garage door application using Raspberry Pi
+# Portal: a garage door application using Raspberry Pi
 
 ## Use Case
 
