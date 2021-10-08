@@ -1,0 +1,65 @@
+version: '3.7'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.ng-app
+    command: npm run docker-start
+    image: portal/ng-app:latest
+    volumes:
+      - ./ng-app/src:/root/ng-app/src
+    ports:
+      - 4200:4200
+      - 80:80
+    restart: always
+    container_name: ng-app
+  node-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.node-service
+    command: npm run start-debug
+    image: portal/node-service:latest
+    volumes:
+      - ./node-service/src:/root/node-service/src
+    ports:
+      - 8080:8080
+      - 9229:9229
+    restart: always
+    depends_on:
+      - mongo
+    container_name: node-service
+  python-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.python-service
+    command: python app.py
+    image: portal/python-service:latest
+    volumes:
+      - ./python-service:/root/python-service
+    ports:
+      - 5000:5000
+    restart: always
+    container_name: python-service
+  mongo:
+    image: webhippie/mongodb:latest
+    volumes:
+      - mongodb:/var/lib/mongodb
+    ports:
+      - 27017:27017
+    restart: always
+    container_name: mongo
+volumes:
+  mongodb:
+  # sonarqube:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.sonarqube
+  #   image: portal/sonarqube:latest
+  #   ports:
+  #     - 9000:9000
+  #     - 9092:9092
+  #   volumes:
+  #     - $PWD/sonar:/opt/sonarqube/data
+  #   restart: always
+  #   container_name: sonarqube

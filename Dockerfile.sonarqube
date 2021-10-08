@@ -1,0 +1,3 @@
+FROM sonarqube:latest
+
+LABEL Joshua S. Eagle

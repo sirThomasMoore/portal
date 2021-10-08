@@ -1,0 +1,7 @@
+{
+  "apiUrl": "api/",
+  "auth": "auth/",
+  "refreshInterval": "60000",
+  "refreshBatchQueryInterval": "30000",
+  "server": "http://app.portal.com:8080/api/"
+}

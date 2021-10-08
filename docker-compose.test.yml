@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    command: ["npm", "run", "test-coverage"]
+    image: portal/webtest:latest
+    volumes:
+      - ./ng-app/coverage:/root/ng-app/coverage
+      - ./ng-app/src:/root/ng-app/src
+    ports:
+      - 9876:9876
+    environment:
+      - DISPLAY=:99
+      - CHROME_BIN=chromium
+    container_name: webtest

@@ -1,0 +1,12 @@
+<mat-toolbar color="primary" class="header mat-elevation-z8">
+  <h1>Portal</h1>
+  <button class="menu-button" mat-icon-button [matMenuTriggerFor]="menu" *ngIf="isLoggedIn()" aria-label="Session Menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <a mat-menu-item (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon> Log Out
+    </a>
+  </mat-menu>
+</mat-toolbar>
+

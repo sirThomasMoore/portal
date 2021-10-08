@@ -1,0 +1,16 @@
+FROM node:current-slim
+
+LABEL Joshua S. Eagle
+
+WORKDIR /root/
+
+COPY ./ng-app /root/ng-app
+
+WORKDIR /root/ng-app
+
+RUN \
+npm install -g @angular/cli && \
+npm install --silent && \
+npm run build
+
+CMD ["npm", "run", "docker-start"]

@@ -1,0 +1,13 @@
+{
+  "originsWhitelist": [
+    "http://192.168.1.191",
+    "http://192.168.1.191:4200",
+    "http://localhost",
+    "http://0.0.0.0",
+    "http://app.portal.com",
+    "http://app.portal.com:4200"
+  ],
+  "port": 8080,
+  "jwtExpirySeconds": 300,
+  "jwtKey": "It's dangerous to go alone!"
+}

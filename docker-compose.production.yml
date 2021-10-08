@@ -1,0 +1,52 @@
+version: "3.3"
+
+services:
+  web:
+    image: nginx:latest
+    volumes:
+      - ./ng-app/dist/portal/:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - 80:80
+    restart: always
+    depends_on:
+      - python-service
+      - node-service
+    container_name: ng-app
+  node-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.node-service
+    command: ["npm", "run", "start"]
+    image: portal/node-service:latest
+    volumes:
+      - ./node-service/src:/root/node-service/src
+    ports:
+      - 8080:8080
+    restart: always
+    depends_on:
+      - mongo
+    container_name: node-service
+  python-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.python-service.prod
+    image: portal/python-service:latest
+    devices:
+      - /dev/gpiomem:/dev/gpiomem
+    volumes:
+      - ./python-service:/root/python-service
+    ports:
+      - 5000
+    restart: always
+    container_name: python-service
+  mongo:
+    image: webhippie/mongodb:latest
+    volumes:
+      - mongodb:/var/lib/mongodb
+    ports:
+      - 27017
+    restart: always
+    container_name: mongo
+volumes:
+  mongodb:

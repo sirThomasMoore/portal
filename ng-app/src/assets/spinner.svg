@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg class="spinner" viewBox="0 0 350 350" xmlns="http://www.w3.org/2000/svg">
+	<g transform="translate(175,175)" fill="none">
+		<circle r="170" fill="none" stroke="#005288" stroke-dasharray="200 360" stroke-width="8">
+			<animateTransform attributeName="transform" dur="1s" repeatCount="indefinite" times="0;1" type="rotate" values="0 0 0;360 0 0" />
+		</circle>
+	</g>
+	<g transform="translate(175,175)" fill="none">
+		<circle r="135" fill="none" stroke="#C0C2C4" stroke-dasharray="200 220" stroke-width="8">
+			<animateTransform attributeName="transform" dur="2.5s" repeatCount="indefinite" times="0;1" type="rotate" values="360 0 0;0 0 0" />
+		</circle>
+	</g>
+</svg>

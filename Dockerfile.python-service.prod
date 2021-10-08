@@ -1,0 +1,13 @@
+FROM arm32v7/python:latest
+
+LABEL Joshua S. Eagle
+
+WORKDIR /root/
+
+COPY ./python-service/ /root/python-service/
+
+WORKDIR /root/python-service/
+
+RUN pip install flask RPi.gpio pyyaml
+
+CMD ["python", "app.py"]

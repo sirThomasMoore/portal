@@ -1,0 +1,17 @@
+FROM node
+
+LABEL firstname lastname
+
+# Install Chrome
+RUN apt-get update && apt-get install -y --no-install-recommends chromium iceweasel && apt-get clean
+
+WORKDIR /root/
+
+COPY ./ng-app /root/ng-app
+
+WORKDIR /root/ng-app
+
+RUN npm i -g @angular/cli && npm i
+
+
+CMD ["npm", "run", "test-coverage"]

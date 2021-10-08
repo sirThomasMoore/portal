@@ -1,0 +1,17 @@
+FROM node:current-slim
+
+LABEL Joshua S. Eagle
+
+WORKDIR /root/
+
+COPY ./node-service /root/node-service/
+
+WORKDIR /root/node-service/
+
+RUN apt-get update && apt-get install -y build-essential python
+
+RUN \
+npm install -g nodemon && \
+npm install --silent
+
+CMD ["npm", "run", "start"]
