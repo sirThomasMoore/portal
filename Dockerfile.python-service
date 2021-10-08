@@ -8,6 +8,6 @@ COPY ./python-service/ /root/python-service/
 
 WORKDIR /root/python-service/
 
-RUN pip install flask gpio pyyaml
+RUN pip install flask pyyaml fake_rpi
 
-CMD ["python", "app.py"]
+CMD ["python", "app.dev.py"]
