@@ -28,7 +28,7 @@ This setup requires you to have Ubuntu Arm64 18.04 flavor of linux.
 
 ## Application Architecture
 
-![Application Architecture](application-architecture/application-architecture.jpeg)
+![Application Architecture](application-architecture/application-architecture.001.png)
 
 ## How far are we?
 
