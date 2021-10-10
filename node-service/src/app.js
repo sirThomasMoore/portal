@@ -18,8 +18,7 @@ const APP = express();
 
 // create mongodb connection
 mongoose.connect('mongodb://mongo:27017/portal', { useNewUrlParser: true});
-
-const db = mongoose.connection;
+mongoose.connection;
 
 //add cors whitelist
 APP.use(cors(corsOptions));
