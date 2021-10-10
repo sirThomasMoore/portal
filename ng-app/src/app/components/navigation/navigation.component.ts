@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 
@@ -10,14 +11,15 @@ import { AuthService } from '../../services/auth.service';
 export class NavigationComponent implements OnInit, AfterViewInit {
 	selected: string = '';
 
-	constructor(private authService: AuthService) { }
+	constructor(private authService: AuthService, private router: Router) { }
 
 	ngOnInit(): void {
+		this.router.events.subscribe(() => {
+			this.updateSelected();
+		});
 	}
 
-	ngAfterViewInit(): void {
-		this.updateSelected();
-	}
+	ngAfterViewInit(): void {}
 
 	isLoggedIn(): boolean {
 		return this.authService.isLoggedIn();
