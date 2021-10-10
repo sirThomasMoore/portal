@@ -19,6 +19,10 @@ export class NavigationComponent implements OnInit, AfterViewInit {
 		this.updateSelected();
 	}
 
+	isAdmin(): boolean {
+		return this.authService.isAdmin();
+	}
+
 	isLoggedIn(): boolean {
 		return this.authService.isLoggedIn();
 	}
