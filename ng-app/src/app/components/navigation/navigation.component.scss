@@ -1,33 +1,40 @@
-nav{
-  ul {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
+@use "~@angular/material" as mat;
+@import '../../../styles.scss';
 
-  li {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    flex: 1;
+nav {
+	ul {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
 
-    a {
-      align-items: center;
-      display: flex;
-      justify-content: center;
-      text-decoration: none;
-      width: 100%;
+	li {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		flex: 1;
 
-      mat-icon {
-        display: block;
-        font-size: 2rem;
-        text-align: center;
-        width: 100%;
-      }
-    }
-  }
+		a {
+			align-items: center;
+			display: flex;
+			justify-content: center;
+			text-decoration: none;
+			width: 100%;
+
+			mat-icon {
+				display: block;
+				font-size: 2rem;
+				text-align: center;
+				width: 100%;
+			}
+		}
+
+		&.selected {
+			background: mat.get-color-from-palette($my-primary);
+			color: $white;
+		}
+	}
 }
-

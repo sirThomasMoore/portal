@@ -1,22 +1,62 @@
+@use "~@angular/material" as mat;
+
+$my-palette: mat.$indigo-palette;
+
+$my-primary: mat.define-palette(mat.$indigo-palette, 500);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The "warn" palette is optional and defaults to red if not specified.
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$main-theme: mat.define-light-theme(
+	(
+		color: (
+			primary: $my-primary,
+			accent: $my-accent,
+			warn: $my-warn,
+		),
+	)
+);
+
+$white: rgba(255, 255, 255, 1);
+$light-gray: rgba(239, 234, 234, 1);
+$medium-gray: rgba(192, 194, 196, 1);
+
 html,
 body {
-  height: 100%;
+	height: 100%;
 }
 
 body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
+	margin: 0;
+	font-family: "Roboto", sans-serif;
 }
 
 router-outlet + * {
-  display: block;
-  margin-top: 25px;
-  padding: 0 16px;
+	display: block;
+	margin-top: 25px;
+	padding: 0 16px;
+}
+
+mat-sidenav mat-icon {
+	margin-right: 12px;
+}
+
+mat-grid-tile {
+	background: lightblue;
+}
+
+mat-radio-group mat-radio-button {
+	margin-left: 5px;
+}
+
+mat-form-field {
+	margin-bottom: 15px;
 }
 
 .card-wrapper {
-  max-width: 1024px;
-  margin: 0 auto;
+	max-width: 1024px;
+	margin: 0 auto;
 }
 
 .text-right {
@@ -31,151 +71,145 @@ router-outlet + * {
 	text-align: center;
 }
 
-mat-sidenav mat-icon {
-  margin-right: 12px;
-}
-
 .hamburger {
-  margin-top: 5px;
-  cursor: pointer;
+	margin-top: 5px;
+	cursor: pointer;
 }
 
 .mat-radio-button,
 .mat-radio-group {
-  margin-right: 25px;
+	margin-right: 25px;
 }
 
-.controlers-wrapper>* {
-  width: 100%;
-  padding: 0;
+.controlers-wrapper > * {
+	width: 100%;
+	padding: 0;
 }
 
 .misc-bottom-padding {
-  margin: 8px 0 10px;
+	margin: 8px 0 10px;
 }
 
 .misc-bottom-padding mat-label {
-  margin-right: 15px;
-}
-
-mat-radio-group mat-radio-button {
-  margin-left: 5px;
+	margin-right: 15px;
 }
 
 .button-wrapper button {
-  margin-right: 5px;
+	margin-right: 5px;
 }
 
 table.mat-table,
 table {
-  width: 100%;
+	width: 100%;
 }
 
 body .mat-list-item {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .inner-wrapper {
-  padding: 15px 0 130px;
-  width: 100%;
+	padding: 15px 0 130px;
+	width: 100%;
 }
 
 .inner-wrapper mat-card {
-  display: inline-block;
-  margin: 0 6% 0 0;
-  vertical-align: top;
-  width: 44%;
+	display: inline-block;
+	margin: 0 6% 0 0;
+	vertical-align: top;
+	width: 44%;
 }
 
 .full-wrapper {
-  width: 100%;
+	width: 100%;
 }
 
 .multiple-items {
-  position: relative;
+	position: relative;
 }
 
 .multiple-items .tooltip-info {
-  right: 0;
-  top: 7px;
-  cursor: pointer;
-  color: #a1a7c7;
-  position: absolute;
-  font-size: 20px;
+	right: 0;
+	top: 7px;
+	cursor: pointer;
+	color: #a1a7c7;
+	position: absolute;
+	font-size: 20px;
 }
 
 body .push-right {
-  margin-right: 10px;
+	margin-right: 10px;
 }
 
 .no-data {
-  text-align: center;
-  padding-top: 30px;
-  color: #6c75a9;
+	text-align: center;
+	padding-top: 30px;
+	color: #6c75a9;
 }
 
 .button-wrapper {
-  margin: 20px 0 0 0;
+	margin: 20px 0 0 0;
 }
 
 .example-card {
-  max-width: 400px;
+	max-width: 400px;
 }
 
 .card-deck-container {
-  width: 100%;
-  max-width: 1200px;
-  position: relative;
-  border-radius: 2px;
-  padding: 10px 10px 30px;
-  margin: 10px 10px 10px 10px;
-  background-color: #f5f5f5;
+	width: 100%;
+	max-width: 1200px;
+	position: relative;
+	border-radius: 2px;
+	padding: 10px 10px 30px;
+	margin: 10px 10px 10px 10px;
+	background-color: #f5f5f5;
 }
 
 .card-item {
-  padding: 3px 3px 3px 3px;
-}
-
-mat-grid-tile {
-  background: lightblue;
+	padding: 3px 3px 3px 3px;
 }
 
 .my-alternate-theme button {
-  margin-right: 10px;
+	margin-right: 10px;
 }
 
-@media (max-width:1024px) {
-  .inner-wrapper mat-card {
-    width: 100%;
-  }
+@media (max-width: 1024px) {
+	.inner-wrapper mat-card {
+		width: 100%;
+	}
 
-  .mat-sidenav-content {
-    padding: 20px 20px 0;
-  }
+	.mat-sidenav-content {
+		padding: 20px 20px 0;
+	}
 
-  .misc-bottom-padding mat-label {
-    display: block;
-    padding-bottom: 10px;
-  }
+	.misc-bottom-padding mat-label {
+		display: block;
+		padding-bottom: 10px;
+	}
 
-  .mat-sidenav {
-    width: 230px;
-  }
+	.mat-sidenav {
+		width: 230px;
+	}
 
-  .mat-nav-list .mat-list-item {
-    font-size: 14px;
-  }
+	.mat-nav-list .mat-list-item {
+		font-size: 14px;
+	}
 }
 
-@media (max-width:767px) {
-  .nav-tool-items {
-    margin-right: 0;
-  }
+@media (max-width: 767px) {
+	.nav-tool-items {
+		margin-right: 0;
+	}
 
-  .hamburger {
-    visibility: visible !important;
-  }
+	.hamburger {
+		visibility: visible !important;
+	}
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
