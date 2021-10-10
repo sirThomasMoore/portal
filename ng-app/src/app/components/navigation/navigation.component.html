@@ -1,17 +1,17 @@
-<nav>
+<nav *ngIf="isLoggedIn()">
 	<ul>
 		<li [ngClass]="{selected: selected === '/user-profile'}" (click)="updateSelected()">
-			<a mat-button class="flex-wrapper" *ngIf="isLoggedIn()" routerLink="/user-profile">
+			<a mat-button class="flex-wrapper" routerLink="/user-profile">
 				<mat-icon>person</mat-icon>User Profile
 			</a>
 		</li>
 		<li [ngClass]="{selected: selected === '/dashboard'}" (click)="updateSelected()">
-			<a mat-button class="flex-wrapper" *ngIf="isLoggedIn()" routerLink="/dashboard">
+			<a mat-button class="flex-wrapper" routerLink="/dashboard">
 				<mat-icon>dashboard</mat-icon>Dashboard
 			</a>
 		</li>
-		<li [ngClass]="{selected: selected === '/user-management'}" (click)="updateSelected()">
-			<a mat-button class="flex-wrapper" *ngIf="isLoggedIn()" routerLink="/user-management">
+		<li *ngIf="isAdmin()" [ngClass]="{selected: selected === '/user-management'}" (click)="updateSelected()">
+			<a mat-button class="flex-wrapper" routerLink="/user-management">
 				<mat-icon>group_add</mat-icon>Manage Users
 			</a>
 		</li>
