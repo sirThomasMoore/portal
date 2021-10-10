@@ -21,6 +21,10 @@ export class NavigationComponent implements OnInit, AfterViewInit {
 
 	ngAfterViewInit(): void {}
 
+	isAdmin(): boolean {
+		return this.authService.isAdmin();
+	}
+
 	isLoggedIn(): boolean {
 		return this.authService.isLoggedIn();
 	}
