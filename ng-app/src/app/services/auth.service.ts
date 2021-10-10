@@ -38,6 +38,14 @@ export class AuthService {
 		localStorage.setItem('authPacket', JSON.stringify(authPacket));
 	}
 
+	private getSession(): AuthPacket {
+		return JSON.parse(localStorage.getItem('authPacket'));
+	}
+
+	public getUser(): User {
+		return this.getSession().user;
+	}
+
 	getExpiration() {
 		const authPacket = JSON.parse(localStorage.getItem('authPacket'));
 		const expiresAt = JSON.parse(authPacket.expiration);
