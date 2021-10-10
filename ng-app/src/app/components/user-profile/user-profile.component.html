@@ -1,3 +1,22 @@
 <mat-card class="card-wrapper">
-  <p>user-profile works!</p>
+	<form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
+		<section>
+			<mat-form-field>
+				<mat-label for="name">Name</mat-label>
+				<input type="text" id="name" matInput formControlName="name" disabled="disabled" />
+			</mat-form-field>
+		</section>
+		<section>
+			<mat-form-field>
+				<mat-label for="email">Email</mat-label>
+				<input type="email" id="email" matInput formControlName="email" disabled />
+			</mat-form-field>
+		</section>
+		<section>
+			<mat-form-field>
+				<mat-label for="name">Role</mat-label>
+				<input type="text" id="name" matInput formControlName="role" disabled />
+			</mat-form-field>
+		</section>
+	</form>
 </mat-card>
