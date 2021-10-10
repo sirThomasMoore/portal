@@ -1,21 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+	selector: 'app-navigation',
+	templateUrl: './navigation.component.html',
+	styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, AfterViewInit {
+	selected: string = '';
 
-  constructor(private authService: AuthService) { }
+	constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {
+	}
 
-  isLoggedIn(): boolean {
-    return this.authService.isLoggedIn();
-  }
+	ngAfterViewInit(): void {
+		this.updateSelected();
+	}
+
+	isLoggedIn(): boolean {
+		return this.authService.isLoggedIn();
+	}
+
+	updateSelected(): void {
+		this.selected = window.location.pathname;
+	}
 
 }
