@@ -1,12 +1,16 @@
 #!flask/bin/python
 
 # Replace libraries by fake ones
-import sys
-import fake_rpi
-
-sys.modules['RPi'] = fake_rpi.RPi     # Fake RPi
-sys.modules['RPi.GPIO'] = fake_rpi.RPi.GPIO # Fake GPIO
-sys.modules['smbus'] = fake_rpi.smbus # Fake smbus (I2C)
+try:
+    import RPi.GPIO as GPIO
+except ImportError:
+    print('no local gpio found, defaulting to fake gpio.')
+    import sys
+    import fake_rpi
+    sys.modules['RPi'] = fake_rpi.RPi     # Fake RPi
+    sys.modules['RPi.GPIO'] = fake_rpi.RPi.GPIO # Fake GPIO
+    sys.modules['smbus'] = fake_rpi.smbus # Fake smbus (I2C)
+    
 
 from flask import Flask, jsonify
 from GarageController import GarageController
