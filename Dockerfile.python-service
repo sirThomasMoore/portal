@@ -10,4 +10,4 @@ WORKDIR /root/python-service/
 
 RUN pip install flask pyyaml fake_rpi
 
-CMD ["python", "app.dev.py"]
+CMD ["python", "app.py"]

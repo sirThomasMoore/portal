@@ -40,6 +40,7 @@ services:
       - 5000
     restart: always
     container_name: python-service
+    privileged: true
   mongo:
     image: webhippie/mongodb:latest
     volumes:
