@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,9 +9,9 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class UserProfileComponent implements OnInit {
 	public user = this.authService.getUser();
-	userFormGroup: FormGroup;
+	userFormGroup: UntypedFormGroup;
 
-	constructor(private authService: AuthService, private formBuilder: FormBuilder) { }
+	constructor(private authService: AuthService, private formBuilder: UntypedFormBuilder) { }
 
 	ngOnInit(): void {
 		this.userFormGroup = this.createForm();
@@ -21,11 +21,11 @@ export class UserProfileComponent implements OnInit {
 		console.log('onSubmit fired!');
 	}
 
-	createForm(): FormGroup {
+	createForm(): UntypedFormGroup {
 		return this.formBuilder.group({
-			name: new FormControl({ value: this.user.name, disabled: true }),
-			email: new FormControl({ value: this.user.email, disabled: true }),
-			role: new FormControl({ value: this.user.role, disabled: true }),
+			name: new UntypedFormControl({ value: this.user.name, disabled: true }),
+			email: new UntypedFormControl({ value: this.user.email, disabled: true }),
+			role: new UntypedFormControl({ value: this.user.role, disabled: true }),
 		});
 	}
 
