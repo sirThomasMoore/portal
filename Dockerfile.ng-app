@@ -1,4 +1,4 @@
-FROM node:current-slim
+FROM node:14.20.1-slim
 
 LABEL Joshua S. Eagle
 
@@ -9,8 +9,8 @@ COPY ./ng-app /root/ng-app
 WORKDIR /root/ng-app
 
 RUN \
-npm install -g @angular/cli && \
-npm install --silent && \
+npm i -g @angular/cli && \
+npm i && \
 npm run build
 
 CMD ["npm", "run", "docker-start"]

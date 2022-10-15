@@ -1,4 +1,4 @@
-FROM node:current-slim
+FROM node:14.20.1-slim
 
 LABEL Joshua S. Eagle
 
@@ -11,7 +11,7 @@ WORKDIR /root/node-service/
 RUN apt-get update && apt-get install -y build-essential python
 
 RUN \
-npm install -g nodemon && \
-npm install --silent
+npm i -g nodemon && \
+npm i
 
 CMD ["npm", "run", "start"]
