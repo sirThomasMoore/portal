@@ -2,8 +2,6 @@
   "originsWhitelist": [
     "http://0.0.0.0",
     "http://localhost",
-    "http://192.168.4.80",
-    "http://192.168.4.80:4200",
     "http://app.portal.com",
     "http://app.portal.com:4200"
   ],
