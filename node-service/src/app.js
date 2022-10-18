@@ -6,6 +6,7 @@ const config = require('./config.json');
 const routes = [
   require('./routes/login'),
   require('./routes/register'),
+  require('./routes/update-user'),
   require('./routes/toggle-garage-door')
 ];
 const corsOptions = {
@@ -19,7 +20,7 @@ const APP = express();
 // create mongodb connection
 mongoose.connect('mongodb://mongo:27017/portal', { useNewUrlParser: true});
 mongoose.connection;
-
+mongoose.set('useFindAndModify', false);
 //add cors whitelist
 APP.use(cors(corsOptions));
 

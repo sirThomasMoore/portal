@@ -3,7 +3,6 @@ var router = express.Router();
 var RequiresLogin = require('../middleware/requires-login');
 var request = require('request');
 
-// POST /toggleGarageDoor
 router.post('/toggle-garage-door', RequiresLogin, function (req, res, next) {
   let pythonUrl = 'http://python-service:5000/toggle-garage-door';
 

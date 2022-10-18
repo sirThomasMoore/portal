@@ -14,9 +14,32 @@
 		</section>
 		<section>
 			<mat-form-field>
-				<mat-label for="name">Role</mat-label>
-				<input type="text" id="name" matInput formControlName="role" disabled />
+				<mat-label for="role">Role</mat-label>
+				<input type="text" id="role" matInput formControlName="role" disabled />
 			</mat-form-field>
+		</section>
+		<section>
+			<mat-form-field appearance="fill">
+				<mat-label>New password</mat-label>
+				<input matInput [type]="hide ? 'password' : 'text'" formControlName="newPassword" required>
+				<button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+					<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+				</button>
+				<mat-error *ngIf="userFormGroup.hasError('required', 'newPassword')">Please enter your new password</mat-error>
+			</mat-form-field>
+		</section>
+		<section>
+			<mat-form-field appearance="fill">
+				<mat-label>Confirm new password</mat-label>
+				<input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmNewPassword" required [errorStateMatcher]="matcher">
+				<button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+					<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+				</button>
+				<mat-error *ngIf="userFormGroup.hasError('notSame')">Passwords do not match</mat-error>
+			</mat-form-field>
+		</section>
+		<section>
+			<button type="submit" mat-raised-button color="primary">Update</button>
 		</section>
 	</form>
 </mat-card>
