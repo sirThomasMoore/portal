@@ -3,7 +3,6 @@ const router = express.Router();
 const jwtHandler = require('../middleware/jwt-handler');
 const User = require('../models/user');
 
-// POST /register
 router.post('/register', (req, res, next) => {
 
     User.find().exec((error, data) => {

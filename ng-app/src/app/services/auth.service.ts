@@ -87,6 +87,12 @@ export class AuthService {
 		);
 	}
 
+	updateUser(pkg): Observable<User> {
+		console.log(pkg)
+		const url = this.configService.buildApiUrl('api', 'update-user');
+		return this.http.post<User>(url, pkg)
+	}
+
 	isAdmin(): boolean {
 		const authPacket: AuthPacket = this.authPacket$.getValue();
 		if (authPacket && authPacket.user.role === 'admin') {

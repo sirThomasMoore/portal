@@ -9,7 +9,6 @@ router.get('/ping', (req, res, next) => {
   });
 });
 
-// POST /login
 router.post('/login', function (req, res, next) {
   if (req.body.email && req.body.password) {
     User.authenticate(req.body.email, req.body.password, function (error, user) {
@@ -34,7 +33,6 @@ router.post('/login', function (req, res, next) {
   }
 });
 
-// POST /refresh-token
 router.post('/refresh-token', (req, res, next) => {
   const token = req.body.jwt;
   const payload = {
